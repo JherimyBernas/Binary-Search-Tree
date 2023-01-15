@@ -69,6 +69,7 @@ class BinarySearchTreeNode:
             elements += self.left.post_order_traversal()
         if self.right:
             elements += self.right.post_order_traversal()
+
         elements.append(self.data)
 
         return elements
@@ -108,7 +109,7 @@ def build_tree(elements):
     print("Building tree with these elements:", elements)
     root = BinarySearchTreeNode(elements[0])
 
-    for i in range(1,len(elements)):
+    for i in range(1, len(elements)):
         root.add_child(elements[i])
 
     return root
@@ -119,12 +120,16 @@ if __name__ == '__main__':
 
     my_name = ["J", "H", "E", "R", "I", "M", "Y", "B", "E", "R", "N", "A", "S"]
     name_tree = build_tree(my_name)
+
     print("J is in the list?", name_tree.search("J"))
     print("Minimum Element:", name_tree.find_min())
     print("Maximum Element:", name_tree.find_max())
     print("In order traversal:", name_tree.in_order_traversal())
     print("Post order traversal:", name_tree.post_order_traversal())
     print("Pre order traversal:", name_tree.pre_order_traversal())
+
+    name_tree.delete("E")
+    print("After deleting E: ", name_tree.in_order_traversal())
     print()
 
     numbers_tree = build_tree([17, 4, 1, 20, 9, 23, 18, 34])
@@ -135,4 +140,7 @@ if __name__ == '__main__':
     print("In order traversal:", numbers_tree.in_order_traversal())
     print("Post order traversal:", numbers_tree.post_order_traversal())
     print("Pre order traversal:", numbers_tree.pre_order_traversal())
+
+    numbers_tree.delete(23)
+    print("After deleting 24: ", numbers_tree.in_order_traversal())
     print()
