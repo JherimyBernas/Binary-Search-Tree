@@ -116,11 +116,12 @@ def build_tree(elements):
 
 
 if __name__ == '__main__':
-    print()
+    print("\nPROGRAMMED BY: JHERIMY S. BERNAS")
+    print("COURSE, YR. & SECTION: BSCOE 2-2\n")
 
+    print()
     my_name = ["J", "H", "E", "R", "I", "M", "Y", "B", "E", "R", "N", "A", "S"]
     name_tree = build_tree(my_name)
-
     print("J is in the list?", name_tree.search("J"))
     print("Minimum Element:", name_tree.find_min())
     print("Maximum Element:", name_tree.find_max())
@@ -128,10 +129,14 @@ if __name__ == '__main__':
     print("Post order traversal:", name_tree.post_order_traversal())
     print("Pre order traversal:", name_tree.pre_order_traversal())
 
+    print()
     name_tree.delete("E")
     print("After deleting E: ", name_tree.in_order_traversal())
+    print("Post order traversal after deleting 24: ", name_tree.post_order_traversal())
+    print("Pre order traversal after deleting 24: ", name_tree.pre_order_traversal())
     print()
 
+    print()
     numbers_tree = build_tree([17, 4, 1, 20, 9, 23, 18, 34])
     print("24 is in the list?", numbers_tree.search(2))
     print("Minimum Element:", numbers_tree.find_min())
@@ -141,6 +146,9 @@ if __name__ == '__main__':
     print("Post order traversal:", numbers_tree.post_order_traversal())
     print("Pre order traversal:", numbers_tree.pre_order_traversal())
 
+    print()
     numbers_tree.delete(23)
-    print("After deleting 24: ", numbers_tree.in_order_traversal())
+    print("In order traversal after deleting 24: ", numbers_tree.in_order_traversal())
+    print("Post order traversal after deleting 24: ", numbers_tree.post_order_traversal())
+    print("Pre order traversal after deleting 24: ", numbers_tree.pre_order_traversal())
     print()
