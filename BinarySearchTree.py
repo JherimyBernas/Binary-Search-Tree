@@ -137,7 +137,7 @@ if __name__ == '__main__':
     print()
 
     print()
-    numbers_tree = build_tree([17, 4, 1, 20, 9, 23, 18, 34])
+    numbers_tree = build_tree([15, 12, 7, 14, 27, 20, 23, 88])
     print("24 is in the list?", numbers_tree.search(2))
     print("Minimum Element:", numbers_tree.find_min())
     print("Maximum Element:", numbers_tree.find_max())
@@ -148,7 +148,7 @@ if __name__ == '__main__':
 
     print()
     numbers_tree.delete(23)
-    print("In order traversal after deleting 24: ", numbers_tree.in_order_traversal())
-    print("Post order traversal after deleting 24: ", numbers_tree.post_order_traversal())
-    print("Pre order traversal after deleting 24: ", numbers_tree.pre_order_traversal())
+    print("In order traversal after deleting 23: ", numbers_tree.in_order_traversal())
+    print("Post order traversal after deleting 23: ", numbers_tree.post_order_traversal())
+    print("Pre order traversal after deleting 23: ", numbers_tree.pre_order_traversal())
     print()
