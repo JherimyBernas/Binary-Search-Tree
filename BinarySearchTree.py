@@ -63,6 +63,25 @@ class BinarySearchTreeNode:
         right_sum = self.right.calculate_sum() if self.right else 0
         return self.data + left_sum + right_sum
 
+    def post_order_traversal(self):
+        elements = []
+        if self.left:
+            elements += self.left.in_order_traversal()
+        if self.right:
+            elements += self.right.in_order_traversal()
+        elements.append(self.data)
+
+        return elements
+
+    def pre_order_traversal(self):
+        elements = [self.data]
+        if self.left:
+            elements += self.left.in_order_traversal()
+        if self.right:
+            elements += self.right.in_order_traversal()
+
+        return elements
+
 
 def build_tree(elements):
     print("Building tree with these elements:", elements)
@@ -79,12 +98,20 @@ if __name__ == '__main__':
 
     my_name = ["J", "H", "E", "R", "I", "M", "Y", "B", "E", "R", "N", "A", "S"]
     name_tree = build_tree(my_name)
-    print("J is in the list? ", name_tree.search("J"))
-    print("Minimum Element: ", name_tree.find_min())
-    print("Maximum Element: ", name_tree.find_max())
+    print("J is in the list?", name_tree.search("J"))
+    print("Minimum Element:", name_tree.find_min())
+    print("Maximum Element:", name_tree.find_max())
+    print("In order traversal:", name_tree.in_order_traversal())
+    print("Post order traversal:", name_tree.post_order_traversal())
+    print("Pre order traversal:", name_tree.pre_order_traversal())
     print()
 
     numbers_tree = build_tree([17, 4, 1, 20, 9, 23, 18, 34])
-    print("Calculate Sum: ", numbers_tree.calculate_sum())
-    print("In order traversal gives this sorted list:", numbers_tree.in_order_traversal())
+    print("24 is in the list?", numbers_tree.search(2))
+    print("Minimum Element:", numbers_tree.find_min())
+    print("Maximum Element:", numbers_tree.find_max())
+    print("Calculate Sum:", numbers_tree.calculate_sum())
+    print("In order traversal:", numbers_tree.in_order_traversal())
+    print("Post order traversal:", numbers_tree.post_order_traversal())
+    print("Pre order traversal:", numbers_tree.pre_order_traversal())
     print()
