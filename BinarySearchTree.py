@@ -66,9 +66,9 @@ class BinarySearchTreeNode:
     def post_order_traversal(self):
         elements = []
         if self.left:
-            elements += self.left.in_order_traversal()
+            elements += self.left.post_order_traversal()
         if self.right:
-            elements += self.right.in_order_traversal()
+            elements += self.right.post_order_traversal()
         elements.append(self.data)
 
         return elements
@@ -76,11 +76,32 @@ class BinarySearchTreeNode:
     def pre_order_traversal(self):
         elements = [self.data]
         if self.left:
-            elements += self.left.in_order_traversal()
+            elements += self.left.pre_order_traversal()
         if self.right:
-            elements += self.right.in_order_traversal()
+            elements += self.right.pre_order_traversal()
 
         return elements
+
+    def delete(self, val):
+        if val < self.data:
+            if self.left:
+                self.left = self.left.delete(val)
+        elif val > self.data:
+            if self.right:
+                self.right = self.right.delete(val)
+        else:
+            if self.left is None and self.right is None:
+                return None
+            elif self.left is None:
+                return self.right
+            elif self.right is None:
+                return self.left
+
+            min_val = self.right.find_min()
+            self.data = min_val
+            self.right = self.right.delete(min_val)
+
+        return self
 
 
 def build_tree(elements):
